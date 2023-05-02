@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zadanie 2</title>
+    <style>
+        input {
+            padding: 5px;
+            background-color: aquamarine;
+            border-radius: 20%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generator danych osobowych</h1>
+    <form onsubmit="generateData(); return false;">
+        <label for="recordCount">Podaj ilość rekordów</label>
+        <input type="number" id="recordCount" name="recordCount" min="1" max="20" required>
+        <input type="submit" value="Wygeneruj">
+    </form>
+    <pre id="output"></pre>
+
+    <script>
+        // Tablica Imion
+        const imiona = ["Jakub","Janusz","Łukasz","Katarzyna","Kasia","Agnieszka","Sebastian","Grażyna"];
+        // Tablica nazwisk
+        const nazwiska = ["Nowak", "Kowalski", "Dobek","Janusz","Korczyn","Haliburt","Maliniak"];
+        // Funkcja generująca dane
+        function generateData() {
+            const recordCount = document.getElementById("recordCount").value;
+            const output = document.getElementById("output");
+            // Tworzenie tablicy na dane z tablic
+            const data = [];
+            // Losowe wybieranie danych tablicowych
+            for (let i = 0; i < recordCount; i++) {
+                const name = imiona[Math.floor(Math.random() * imiona.length)];
+                const surname = nazwiska[Math.floor(Math.random() * nazwiska.length)];
+                const age = Math.floor(Math.random() * (80 - 18 + 1)) + 18;
+                const phone = Math.floor(Math.random() * (8000000 - 5000000 + 1)) + 5000000;
+                // Pobieranie zmiennych z JS i zmiana do tablic JSON
+                const person = {
+                    imie: name,nazwisko: surname,wiek: age,numer_telefonu: phone
+                };
+                // Dodawanie obiektu do tablicy z danymi osobowymi
+                data.push(person);
+            }
+            // Wypisanie danych osobowych w formacie JSON
+            output.textContent = JSON.stringify(data, null, 2);
+        }
+        // Wypisywanie do konsoli danych (NIE DZIAŁA)
+        console.log(JSON.stringify(data, null, 2).content)
+    </script>
+</body>
+</html>
