@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB8</title>
+</head>
+<body>
+    <h1>Formularz rejestracyjny</h1>
+    <form>
+        <div>
+        <label for="name">Imię:</label>
+        <input type="text" id="name" name="name"><br>
+        <span id="name-error"></span>
+        <br><br>
+        </div>
+
+        <div>
+        <label for="surname">Nazwisko:</label>
+        <input type="text" id="surname" name="surname"><br>
+        <span id="surname-error"></span>
+        <br><br>
+        </div>
+
+        <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br>
+        <span id="email-error"></span>
+        <br><br>
+        </div>
+
+        <div>
+        <label for="password">Hasło:</label>
+        <input type="password" id="password" name="password"><br>
+        <span id="password-error"></span>
+        <br><br>
+        </div>
+
+        <div>
+        <label for="gender">Płeć:</label>
+        <select id="gender" name="gender"><br>
+        <option value=""></option>
+        <option value="male">Mężczyzna</option>
+        <option value="female">Kobieta</option>
+        </select>
+        <span id="gender-error"></span>
+        <br><br>
+        </div>
+
+        <div>
+        <label for="phone">Telefon:</label>
+        <input type="tel" id="phone" name="phone"><br>
+        <span id="phone-error"></span>
+        <br><br>
+        </div>
+
+        <div>
+        <label for="birthdate">Data urodzenia:</label>
+        <input type="date" id="birthdate" name="birthdate"><br>
+        <span id="birthdate-error"></span>
+        <br><br>
+        </div>
+
+        <div>
+            <label for="country">Kraj:</label>
+            <input type="text" id="country" name="country" onchange="wojewShow(this)"><br>
+            <span id="country-error"></span>
+            <br><br>
+            </div>
+
+        <div>
+            <label for="wojew">Województwo:</label>
+            <input type="text" id="wojew" name="wojew" disabled ><br>
+            <span id="wojew-error"></span>
+            <br><br>
+        </div>
+        <div>
+            <label for="adrszam">Adres zamieszkania:</label>
+            <input type="text" id="adrszam" name="adrszam" disabled><br>
+            <span id="adrszam-error"></span>
+            <br><br>
+        </div>
+        <div>
+            <label for="adrskor">Adres korespondencyjny jest taki sam jak adres zamieszkania:</label>
+            <input type="checkbox" id="adrskor" name="adrskor" checked onchange="adreskorShow(this)"><br>
+            <span id="wojew-error"></span>
+            <br><br>
+        </div>
+        <div id="adresKor" style="display: none;">
+            <label for="adrskor1">Adres korespondencyjny:</label>
+            <input type="text" id="adrskor1" name="adrskor1" disabled><br>
+            <span id="wojew-error"></span>
+            <br><br>
+        </div>
+        <div>
+        <button type="submit">Zapisz</button>
+        </div>
+    </form>
+</body>
+<script src="LAB8.js"></script>
+</html>
