@@ -48,19 +48,50 @@ const adrszamInput = document.getElementById('adrszam');
 const adrskorInput = document.getElementById('adrskor');
 const adrskor1Input = document.getElementById('adrskor1');
 
+function telNumber(evt) { //wzięty z internetu...
+    var theEvent = evt || window.event;
+
+    // Handle paste
+    if (theEvent.type === 'paste') {
+        key = event.clipboardData.getData('text/plain');
+    } else {
+    // Handle key press
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode(key);
+    }
+    var regex = /[0-9]|\./;
+    if( !regex.test(key) ) {
+      theEvent.returnValue = false;
+      if(theEvent.preventDefault) theEvent.preventDefault();
+    }
+  }
+
 function wojewShow(sprw){
-    if(sprw.value==="Poland"){
+    if(sprw.value==="Polska"){
+    document.getElementById('wojew').replaceWith('<select id="wojew" name="wojew">'+'<option>"kys"</option>'+'</select>')
     document.getElementById('wojew').disabled=false;
-    }else{
+    }else if(sprw.value.isNotEmpty=true){
+        document.getElementById('wojew').disabled=false;
+    }
+    else{
         document.getElementById('wojew').disabled=true;
     }
 }
 
+function adrszamShow(sprw1){
+    if(sprw1.value.isNotEmpty=true){
+        document.getElementById('adrszam').disabled=false;
+        }
+        else{
+            document.getElementById('adrszam').disabled=true;
+        }
+}
+
 function adreskorShow(checkboxElem){
     if(checkboxElem.checked){
-        document.getElementById('adresKor').style="display: none;";
+        document.getElementById('adresKor').style="visibility: hidden;";
     }else{
-        document.getElementById('adresKor').style="display: flex;";
+        document.getElementById('adresKor').style="visibility: visible;";
         document.getElementById('adrskor1').disabled = false;
     }
 }

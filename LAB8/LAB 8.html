@@ -50,7 +50,7 @@
 
         <div>
         <label for="phone">Telefon:</label>
-        <input type="tel" id="phone" name="phone"><br>
+        <input type="text" id="phone" name="phone" onkeypress="telNumber(event)" /><br>
         <span id="phone-error"></span>
         <br><br>
         </div>
@@ -64,17 +64,18 @@
 
         <div>
             <label for="country">Kraj:</label>
-            <input type="text" id="country" name="country" onchange="wojewShow(this)"><br>
+            <input type="text" id="country" name="country" style="text-transform: capitalize;" onchange="wojewShow(this)"><br>
             <span id="country-error"></span>
             <br><br>
             </div>
 
         <div>
             <label for="wojew">Województwo:</label>
-            <input type="text" id="wojew" name="wojew" disabled ><br>
+            <input type="text" id="wojew" name="wojew" disabled onchange="adrszamShow(this)"><br>
             <span id="wojew-error"></span>
             <br><br>
         </div>
+
         <div>
             <label for="adrszam">Adres zamieszkania:</label>
             <input type="text" id="adrszam" name="adrszam" disabled><br>
